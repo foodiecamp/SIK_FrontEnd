@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>SIK Login &amp; Register</title>
+    <title>SIK | Login &amp; Register</title>
 
     <!-- CSS -->
     <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:400,100,300,500">
@@ -53,7 +53,7 @@
                                 </div>
                             </div>
                             <div class="form-bottom">
-                                <form role="form" action="" method="post" class="login-form">
+                                <form role="form" class="my_form_login">
                                     <div class="form-group">
                                         <label class="sr-only" for="form-username">Username</label>
                                         <input type="text" name="form-username" placeholder="Username..." class="form-username form-control" id="form-username">
@@ -62,7 +62,7 @@
                                         <label class="sr-only" for="form-password">Password</label>
                                         <input type="password" name="form-password" placeholder="Password..." class="form-password form-control" id="form-password">
                                     </div>
-                                    <button type="submit" class="btn">Sign in!</button>
+                                    <button type="button" class="btn" id="signin_btn">Sign in!</button>
                                 </form>
                             </div>
                         </div>
@@ -100,7 +100,7 @@
                                 </div>
                             </div>
                             <div class="form-bottom">
-                                <form role="form" action="" method="post" class="registration-form">
+                                <form role="form" class="my_form_signup">
                                     <div class="form-group">
                                         <label class="sr-only" for="form-first-name">First name</label>
                                         <input type="text" name="form-first-name" placeholder="First name..." class="form-first-name form-control" id="form-first-name">
@@ -111,17 +111,17 @@
                                     </div>
                                     <div class="form-group">
                                         <label class="sr-only" for="form-username">Username</label>
-                                        <input type="text" name="form-username" placeholder="Username..." class="form-username form-control" id="form-username">
+                                        <input type="text" name="form-username" placeholder="Username..." class="form-username form-control" id="form-username_signUp">
                                     </div>
                                     <div class="form-group">
                                         <label class="sr-only" for="form-password">Password</label>
-                                        <input type="password" name="form-password" placeholder="Password..." class="form-password form-control" id="form-password">
+                                        <input type="password" name="form-password" placeholder="Password..." class="form-password form-control" id="form-password_signUp">
                                     </div>
                                     <div class="form-group">
                                         <label class="sr-only" for="form-email">Email</label>
                                         <input type="text" name="form-email" placeholder="Email..." class="form-email form-control" id="form-email">
                                     </div>
-                                    <button type="submit" class="btn">Sign me up!</button>
+                                    <button type="button" class="btn" id="signUp_btn">sign me Up</button>
                                 </form>
                             </div>
                         </div>
@@ -139,11 +139,75 @@
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="assets/js/jquery.backstretch.min.js"></script>
     <script src="assets/js/scripts.js"></script>
+    <script type='text/javascript' src="http://cdnjs.cloudflare.com/ajax/libs/jquery-ajaxtransport-xdomainrequest/1.0.1/jquery.xdomainrequest.min.js"></script>
+
+
+
 
     <!--[if lt IE 10]>
             <script src="assets/js/placeholder.js"></script>
         <![endif]-->
+    <script language="javascript" type="text/javascript">
+        $(document).ready(function() {
+            $("#signUp_btn").click(function() {
+                var fName = $("#form-first-name").val();
+                var lName = $("#form-last-name").val();
+                var username = $("#form-username_signUp").val();
+                var password = $("#form-password_signUp").val();
+                var email = $("#form-email").val();
+                // "id":null,"username":"dummyuser1","password":"password123","email":"dummyuser1@recipe.com","nickname":"fun"} 
+                var data = JSON.stringify({
+                    "id": null,
+                    "username": username,
+                    "password": password,
+                    "email": email,
+                    "nickname": "fun"
+                });
+                $.ajax({
+                    type: "POST",
+                    contentType: "application/json",
+                    url: "http://localhost:8080/recipe/rest/api/users",
+                    data: data,
+                    dataType: "json",
+                    crossdomain: true,
+                    success: function(data) {
+                        alert("Successfully Registered!!!! Please login to view Recipes");
+                        $(".my_form_signup").trigger("reset");                        
+                        window.location.href = "login_register.html";
+                    },
+                    error: function(result) {
+                        alert("Error");
+                    }
+                });
 
+            });
+            $("#signin_btn").click(function() {
+                var username = $("#form-username").val();
+                var password = $("#form-password").val();
+                var myURL = "http://localhost:8080/recipe/rest/api/auth/login?username=admin&password=password123";
+                // "id":1,"username":"admin","email":"admin@recipe.com","nickname":"fun","createdBy":"admin","createdDate":1446175992000,"updatedBy":"adimn","updatedDate":1446176000000}
+                var data = JSON.stringify({
+                    "username": username,
+                    "password": password
+                });
+                $.ajax({
+                    type: "POST",
+                    url: myURL,
+                    data: data,
+                    crossDomain: true,
+                    contentType: "application/x-www-form-urlencoded",
+                    success: function(response) {
+                        $(".my_form_login").trigger("reset");
+                        window.location.href = "Recipe_home.html";
+                    },
+                    error: function(XMLHttpRequest, textStatus, errorThrown) {
+                        alert("Response Failed");
+                    }
+                });
+                return false;
+            });
+        });
+    </script>
 </body>
 
 </html>

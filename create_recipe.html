@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>SIK | Create Recipe</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:400,100,300,500">
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/css/form-elements.css">
+    <link rel="stylesheet" href="assets/css/login_register.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/start_page.css" />
+    <link rel="stylesheet" type="text/css" href="assets/css/component.css" />
+
+    <link href="https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+    <!-- Favicon and touch icons -->
+    <link rel="shortcut icon" href="assets/ico/favicon.png">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="assets/ico/apple-touch-icon-57-precomposed.png">
+
+</head>
+
+<body>
+
+    <div class="cont">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            <a class="navbar-brand" href="Recipe_home.html">Stories In Kitchen</a>
+        </div>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav align_navbar">
+                <li>
+                    <a href="Recipe_home.html">View Rcecipes</a>
+                </li>
+                <li>
+                    <a href="index.html">Signout</a>
+                </li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+        <div class="form-style-5">
+            <div class="form-bottom create-recipe">
+                <form role="form" class="my_form">
+                    <fieldset>
+                        <legend><span class="number">1</span> Recipe Info</legend>
+                        <input type="text" id="recipe_name" class="recipe-name" name="field1" placeholder="Recipe Name...">
+                        <textarea name="field3" id="recipe_Desc" class="recipes-text-area" placeholder="Description"></textarea>
+                        <label for="Level">Difficulty Level:</label>
+                        <select id="Level" id="recipe_Level" class="recipe-name" name="recipe_level">
+                                  <option value="Select">Select</option>
+                                  <option value="SuperEasy">Easy</option>
+                                  <option value="SuperEasy">SuperEasy</option>
+                                  <option value="nottohard">Not To Hard</option>
+                                  <option value="goodluck">Good Luck</option>
+                        </select>
+                        <label for="Level">Category:</label>
+                        <select id="Level" id="recipe_category" class="recipe-name" name="recipe_category">
+                                  <option value="Select">Select</option>
+                                  <option value="Appetizer">Appetizer</option>
+                                  <option value="Main Course">Main Course</option>
+                                  <option value="Special Dishes">Special Dishes</option>
+                                  <option value="Sauces">Sauces</option>
+                                  <option value="Desserts">Desserts</option>
+                                  <option value="Salads">Salads</option>
+                                  <option value="Snacks">Snacks</option>
+                                  <option value="Drinks">Drinks</option>
+                        </select>
+                    </fieldset>
+                    <fieldset>
+                        <legend><span class="number">2</span> Additional Info</legend>
+                        <input type="text" id="recipe_ServingAmount" class="recipe-name" name="servingAmount" placeholder="Serving Amount...">
+                        <input type="text" id="recipe_CookingTime" class="recipe-name" name="cookingTime" placeholder="Cooking Time...">
+                        <textarea name="field3" id="recipe_Ingredients" class="recipes-text-area" placeholder="Ingredients"></textarea>
+                        <textarea name="field3" id="recipe_Directions" class="recipes-text-area" placeholder="Directions"></textarea>
+                        <textarea name="field3" id="recipe_Nutritions" class="recipes-text-area" placeholder="Nutrition facts"></textarea>
+                        <label id="recipe_Image" class="btn btn-default btn-file recipe-name">
+                                    Upload image <input type="file" style="display: none;">
+                                </label>
+                    </fieldset>
+                    <button type="button" class="btn recipe-name" id="create_recipe">Create Recipe!</button>
+                </form>
+            </div>
+            <div class="form-bottom create-recipe rcp-sk">
+                <img class="" src="assets/img/backgrounds/sk.png" width="450" height="150">
+            </div>
+            <div class="form-bottom create-recipe rcp">
+                <img class="recipe-image" src="assets/img/backgrounds/CRT.png">
+            </div>
+
+        </div>
+    </div>
+
+    <div id="dialog-2" title="Dialog Title goes here...">That was a good Recipe</div>
+    <!-- Javascript -->
+    <script src="assets/js/jquery-1.11.1.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/js/jquery.backstretch.min.js"></script>
+    <script src="assets/js/scripts.js"></script>
+    <script type='text/javascript' src="http://cdnjs.cloudflare.com/ajax/libs/jquery-ajaxtransport-xdomainrequest/1.0.1/jquery.xdomainrequest.min.js"></script>
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+
+    <!--[if lt IE 10]>
+            <script src="assets/js/placeholder.js"></script>
+    <![endif]-->
+
+    <!-- CSS -->
+    <style>
+        .ui-widget-header,
+        .ui-state-default,
+        ui-button {
+            background: #19b9e7;
+            border: 1px #19b9e7;
+            color: #FFFFFF;
+            font-weight: bold;
+        }
+    </style>
+    <script language="javascript" type="text/javascript">
+        jQuery(document).ready(function() {
+            var level = "";
+            var category = "";
+            $("#dialog-2").dialog({
+                autoOpen: false,
+                buttons: {
+                    OK: function() {
+                        $(this).dialog("close");
+                        window.location.href = "Recipe_home.html";
+                    }
+                },
+                title: "Recipe Created",
+                position: {
+                    my: "center",
+                    at: "center"
+                }
+            });
+            $('select[name="recipe_level"]').on('change', function() {
+                level = $(this).val();
+            });
+            $('select[name="recipe_category"]').on('change', function() {
+                category = $(this).val();
+            });
+
+            $("#create_recipe").click(function() {
+                var RName = $("#recipe_name").val();
+                var RDesc = $("#recipe_Desc").val();
+                var RLevel = level;
+                var RCategory = category;
+                var RServingAmount = $("#recipe_ServingAmount").val();
+                var RCookTime = $("#recipe_CookingTime").val();
+                var RIngredients = $("#recipe_Ingredients").val();
+                var RDirections = $("#recipe_Directions").val();
+                var RNutritions = $("#recipe_Nutritions").val();
+                // 
+                var data = JSON.stringify({
+                    "id": null,
+                    "title": RName,
+                    "description": RDesc,
+                    "difficulty": RLevel,
+                    "servingAmount": RServingAmount,
+                    "cookingTime": RCookTime,
+                    "ingredient": RIngredients,
+                    "direction": RDirections,
+                    "nutritionFact": RNutritions,
+                    "imageUrl": "https://jamieoliverprod.s3.amazonaws.com/recipe-database/oldImages/recipe_single/1554_2_1441789324.jpg",
+                    "userId": 1,
+                    "category": RCategory
+                });
+                $.ajax({
+                    type: "POST",
+                    contentType: "application/json",
+                    url: "http://localhost:8080/recipe/rest/api/recipes",
+                    data: data,
+                    crossdomain: true,
+                    success: function(Response) {
+                        $("#dialog-2").dialog("open");
+                    },
+                    error: function(XMLHttpRequest, textStatus, errorThrown) {
+                        alert("some error");
+                    }
+                });
+
+            });
+        });
+    </script>
+</body>
+
+</html>
